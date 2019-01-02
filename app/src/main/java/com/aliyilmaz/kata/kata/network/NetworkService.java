@@ -5,14 +5,18 @@ import com.aliyilmaz.kata.kata.models.JSONModel;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.Module;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-
+@Module
 public class NetworkService {
-    private final INetworkService INetworkService;
+    private INetworkService INetworkService;
+
 
     public NetworkService(INetworkService INetworkService) {
         this.INetworkService = INetworkService;

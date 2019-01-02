@@ -6,18 +6,21 @@ import com.aliyilmaz.kata.kata.network.NetworkService;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
 
 public class MainActivityPresenter {
+
     private final NetworkService networkService;
-    private final MainActivityView view;
+    private MainActivityView view;
     private CompositeSubscription subscriptions;
 
-    public MainActivityPresenter(NetworkService networkService, MainActivityView view) {
+    @Inject
+    public MainActivityPresenter(NetworkService networkService) {
         this.networkService = networkService;
-        this.view = view;
         this.subscriptions = new CompositeSubscription();
     }
 
@@ -42,6 +45,11 @@ public class MainActivityPresenter {
 
         subscriptions.add(subscription);
     }
+
+    public void setView(MainActivityView view) {
+        this.view = view;
+    }
+
     public void onStop() {
         subscriptions.unsubscribe();
     }

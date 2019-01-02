@@ -22,6 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkModule {
     File cacheFile;
     private static final String BASE_URL = "https://www.abercrombie.com/";
+    private INetworkService iNetworkService;
 
     public NetworkModule(File cacheFile) {
         this.cacheFile = cacheFile;
@@ -40,7 +41,7 @@ public class NetworkModule {
 
         //Create cache control and specify cache max age
         final CacheControl cacheControl = new CacheControl.Builder()
-                .maxAge(5, TimeUnit.DAYS) // 15 minutes cache
+                .maxAge(5, TimeUnit.DAYS) // 5 Days Cache
                 .build();
 
         // Create okhttpclient

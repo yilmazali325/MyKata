@@ -4,6 +4,8 @@ import com.aliyilmaz.kata.kata.models.JSONModel;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 
 public interface MainActivityView {
     void showProgressDialog();
